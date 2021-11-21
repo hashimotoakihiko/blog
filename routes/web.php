@@ -16,5 +16,15 @@ use Illuminate\Support\Facades\Route;
 //ブログ一覧画面を表示
 Route::get('/','App\Http\Controllers\BlogController@showList')->name
 ('blogs');
+
+//ブログ登録画面を表示
+Route::get('/blog/create','App\Http\Controllers\BlogController@showCreate')->name
+('create');
+
+//ブログ登録画面を表示
+Route::post('/blog/store','App\Http\Controllers\BlogController@exeStore')->name
+('store');
+
+//ブログ詳細画面を表示
 Route::get('/blog/{id}','App\Http\Controllers\BlogController@showDetail')->name
 ('show');
