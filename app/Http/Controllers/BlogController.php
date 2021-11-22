@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
-use App\Http\Requests\Blogrequest;
+use App\Http\Requests\BlogRequest;
 
 class BlogController extends Controller
 {
@@ -59,9 +59,10 @@ class BlogController extends Controller
         \DB::beginTransaction();
         try{
         //ブログを登録
-        Blog::create($inputs);
-        \DB::commit();
-        } catch(\Throwable $e){
+            Blog::create($inputs);
+            \DB::commit();
+        } catch(\Throwable $e) {
+            \DB::rollback();
             abort(500);
         }
 
