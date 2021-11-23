@@ -34,8 +34,6 @@ class BlogController extends Controller
            return redirect(route('blogs'));
        }
 
-
-        
         return view('blog.detail',
         ['blog' => $blogs]); 
     }
