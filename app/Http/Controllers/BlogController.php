@@ -101,13 +101,18 @@ class BlogController extends Controller
         //ブログを登録
             $blog = Blog::find($inputs
             ['id']);
+            $blog->fill([
+                'tilte' => $inputs['title'],
+                'content' => $inputs['content'],
+            ]);
+            $blog->save();
             \DB::commit();
         } catch(\Throwable $e) {
             \DB::rollback();
             abort(500);
         }
 
-        \Session::flash('err_msg', 'ブログを登録しました');
+        \Session::flash('err_msg', 'ブログを更新しました');
         return redirect(route('blogs'));
     }
 }
