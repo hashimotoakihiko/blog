@@ -73,7 +73,7 @@ class BlogController extends Controller
         * @return view
     */
 
-    public function showDetail($id)
+    public function showEdit($id)
     {
        $blogs = Blog::find($id);
 
