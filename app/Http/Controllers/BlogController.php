@@ -96,6 +96,7 @@ class BlogController extends Controller
 
         dd($inputs);
 
+
         \DB::beginTransaction();
         try{
         //ブログを登録
@@ -111,6 +112,7 @@ class BlogController extends Controller
             \DB::rollback();
             abort(500);
         }
+
 
         \Session::flash('err_msg', 'ブログを更新しました');
         return redirect(route('blogs'));
